@@ -1,0 +1,17 @@
+controller\UserSessionBean.class
+controller\LoginBean.class
+conexion\dao\LoginServlet.class
+com\mycompany\capirentintegrador\resources\JakartaEE91Resource.class
+controller\UserBean.class
+service\UserService.class
+controller\ProductBean.class
+controller\RegisterBean.class
+conexion\dao\dao.class
+controller\SearchBean.class
+conexion\dao\UserServlet.class
+model\Product.class
+controller\CartBean.class
+controller\ProductDetailsBean.class
+service\ProductService.class
+com\mycompany\capirentintegrador\JakartaRestConfiguration.class
+model\User.class

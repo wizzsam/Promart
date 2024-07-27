@@ -1,0 +1,216 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    width: 220px;
+    /* Tamaño ajustado de la tarjeta */
+    overflow: hidden;
+    margin: 20px;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.card-title .estado {
+    color: blue;
+    font-size: 14px;
+}
+
+.card-price .price {
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.card-description p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.card-rating .stars {
+    font-size: 16px;
+    color: #f0c330;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.card-footer .user {
+    display: flex;
+    align-items: center;
+}
+
+.card-footer .user img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.card-footer .card-action a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+.contenedor_buscar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2C3029;
+    padding: 25px;
+}
+
+.contenedor_buscar form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* Añade espacio entre los elementos, ajusta según sea necesario */
+}
+
+.contenedor_buscar label,
+.contenedor_buscar input,
+.contenedor_buscar button,
+.contenedor_buscar img {
+    vertical-align: middle;
+}
+
+.buscar {
+    width: 350px;
+}
+
+.label_buscar {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.contenedor_infoP {
+    display: flex;
+    flex-direction: column;
+    margin-left: 500px;
+    margin-top: 40px;
+    gap: 10px;
+}
+
+.titulo_Pro {
+    font-size: 45px;
+    font-weight: bold;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.Descrip_Pro {
+    font-size: 25px;
+}
+
+.Descrip_Pro span {
+    font-size: 25px;
+    color: #FF8A00;
+}
+
+.contenedor_productos {
+    background: #003300;
+    width: 250px;
+    border-radius: 0px 15px 15px 0px;
+    height: 150%;
+}
+.contenedor_productos{
+    background: #003300;
+}
+
+.contenedor_filtro h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.filtro_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.filtro_item h1 {
+    font-size: 18px;
+    margin: 0;
+    color: white;
+    font-weight: bold;
+    font-family: "Roboto Condensed", sans-serif;
+    margin-left: 10px;
+}
+
+.filtro_item img {
+    margin-left: 10px;
+}
+
+.checkbox_group {
+    margin-left: 20px;
+    margin-bottom: 5px;
+    padding: 15px;
+}
+
+.checkbox_group label {
+    display: block;
+    color: white;
+}
+
+.checkbox_group input {
+    margin-right: 10px;
+}
+
+.contenedor_globalP {
+    margin-top: 25px;
+}
+
+.label_filtro {
+    color: wheat;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+    padding: 10px;
+}
+.contenedor_globalP {
+    display: flex;
+}
+.text-titulo {
+    text-align: center;
+    padding: 20px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.text-titulo span {
+    color: red;
+}
+
+

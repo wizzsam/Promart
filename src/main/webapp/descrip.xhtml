@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      lang="en"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="css/flexbox.css"/>
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/descrip.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+        <link rel="shortcut icon" href="imagenes/logo_capibara.png" type="image/x-icon"/>
+        <title>Iniciar Sesion</title>
+    </head>
+
+    <body>
+        <header>
+            <nav class="contenedor_header">
+                <section class="subcontenedor_header">
+                    <section class="contenedor_logo">
+                        <h:link outcome="index.xhtml">
+                            <h:graphicImage value="/imagenes/logo_capibara.png" alt="logo_capibara" styleClass="img_logo"/>
+                        </h:link>
+                        <p class="titulo_logo">CAPIRENT</p>
+                    </section>
+                    <div class="links_header">
+                        <h:link value="NOSOTROS" outcome="#" styleClass="link_page"/>
+                        <h:link value="SUBIR PRODUCTO" outcome="subirProducto.xhtml" styleClass="link_page"/>
+                        <h:link value="PRODUCTOS" outcome="product.xhtml" styleClass="link_page"/>
+                        <h:panelGroup rendered="#{!userSessionBean.loggedIn}">
+                            <h:link value="INICIAR SESION" outcome="login.xhtml" styleClass="link_page"/>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{userSessionBean.loggedIn}">
+                            <h:outputText value="Hola, #{userSessionBean.username}" styleClass="link_page"/>
+                            <h:commandLink value="Cerrar Sesión" action="#{loginBean.logout}" styleClass="link_page"/>
+                        </h:panelGroup>
+                    </div>
+                </section>
+            </nav>
+        </header>
+        <main>
+            <h:form>
+                <div class="titulo-seccion">
+                    <h1 class="ti_pro">#{productDetailsBean.product.nombre} - #{productDetailsBean.product.marca}</h1>
+                    <p class="ubi_pro">#{productDetailsBean.product.pais}, #{productDetailsBean.product.ciudad}</p>
+                </div>
+                <div class="cuerpo-seccion">
+                    <div class="imagen-producto">
+                        <h:graphicImage class="img_product" value="#{productDetailsBean.product.imageUrl}" alt="#{productDetailsBean.product.nombre}"/>
+                    </div>
+                    <div class="descripcion-producto">
+                        <h1 class="descripcion-titulo">Descripción</h1>
+                        <p>#{productDetailsBean.product.descripcion}</p>
+                        <h2 class="descripcion-titulo">Este articulo es de:</h2>
+                        <p>#{productDetailsBean.product.uploadedBy}</p>
+                        <h2 class="descripcion-titulo">Costo del alquiler</h2>
+                        <p>#{productDetailsBean.product.precio} soles</p>
+                        <h2 class="descripcion-titulo">¿Cuando lo necesitas?</h2>
+                        <div class="fechas-alquiler">
+                            <div class="grupo-input">
+                                <label for="pickup">Recogida</label>
+                                <h:inputText id="pickup" styleClass="datetime-input">
+                                    <f:passThroughAttribute name="type" value="datetime-local"/>
+                                </h:inputText>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="grupo-input">
+                                <label for="return">Devolución</label>
+                                <h:inputText id="return" styleClass="datetime-input">
+                                    <f:passThroughAttribute name="type" value="datetime-local"/>
+                                </h:inputText>
+                            </div>
+                        </div>
+                        <h:commandButton value="Consultar" styleClass="consult-button" onclick="showAvailability()" type="button"/>
+                    </div>
+                </div>
+                <div class="boton-carrito">
+                    <h:commandButton value="Agregar al carrito" action="#{productDetailsBean.addToCart}" styleClass="consult-button2" onclick="addToCart()" type="button"/>
+                </div>
+
+                <!-- The Modal for Availability -->
+                <div id="availabilityModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeAvailabilityModal()">&#215;</span>
+                        <h2>Producto disponible</h2>
+                    </div>
+                </div>
+            </h:form>
+        </main>
+        <footer class="contenedor_footer">
+            <section class="contenedor_redes">
+                <h1 class="titulo_footer">CAPIRENT</h1>
+                <section class="redes">
+                    <h:graphicImage value="/imagenes/logo_facebook.png" alt="" styleClass="img_redes"/>
+                    <h:graphicImage value="/imagenes/logo_instragram.png" alt="" styleClass="img_redes2"/>
+                    <h:graphicImage value="/imagenes/logo_tiktok.png" alt="" styleClass="img_redes3"/>
+                </section>
+                <p class="copy"> &#169;COPYRIGHT</p>
+            </section>
+            <section class="contenedor_contacto">
+                <h1 class="titulo_contacto">CONTACTANOS:</h1>
+                <div class="subcontenedor_contacto">
+                    <div class="contenedor_llamada">
+                        <h:graphicImage value="/imagenes/telefono.svg" alt="" styleClass="imagen_tele"/>
+                        <section class="info_tele">
+                            <p class="info_fo">Llamanos:</p>
+                            <p class="info_fo">999999999</p>
+                        </section>
+                    </div>
+                    <div class="contenedor_llamada">
+                        <h:graphicImage value="/imagenes/computadora.svg" alt="" styleClass="imagen_tele"/>
+                        <section class="info_tele">
+                            <p class="info_fo">Escribenos:</p>
+                            <p class="info_fo">capirent@a</p>
+                        </section>
+                    </div>
+                    <div class="contenedor_llamada">
+                        <h:graphicImage value="/imagenes/casa.svg" alt="" styleClass="imagen_tele"/>
+                        <section class="info_tele">
+                            <p class="info_fo">Visitanos:</p>
+                            <p class="info_fo">UbrLocal</p>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <h:graphicImage value="/imagenes/img_footer2.png" alt="" styleClass="img_footer"/>
+        </footer>
+        <script>
+            function addToCart() {
+                alert('Producto añadido al carrito');
+                window.location.href = 'product.xhtml';
+            }
+        </script>
+        <script src="js/productDes.js"></script>
+    </body>
+
+</html>

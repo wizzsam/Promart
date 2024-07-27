@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/flexbox.css"/>
+    <link rel="shortcut icon" href="imagenes/logo_capibara.png" type="image/x-icon"/>
+    <title>PROMART</title>
+</head>
+
+<body>
+    <h:form>
+        <header>
+            <nav class="contenedor_header">
+                <section class="subcontenedor_header">
+                    <section class="contenedor_logo">
+                        <h:graphicImage value="/imagenes/Promart_logo_2019.svg" alt="logo_capibara" styleClass="img_logo"/>
+                        <p class="titulo_logo">PROMART</p>
+                    </section>
+                   <div class="links_header">
+                    <h:link value="NOSOTROS" outcome="#" styleClass="link_page"/>
+                    <h:link value="SUBIR PRODUCTO" outcome="subirProducto.xhtml" styleClass="link_page"/>
+                    <h:link value="PRODUCTOS" outcome="product.xhtml" styleClass="link_page"/>
+                    <h:panelGroup rendered="#{!userSessionBean.loggedIn}">
+                        <h:link value="INICIAR SESION" outcome="login.xhtml" styleClass="link_page"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{userSessionBean.loggedIn}">
+                        <h:outputText value="Hola, #{userSessionBean.username}" styleClass="link_page"/>
+                        <h:commandLink value="Cerrar Sesión" action="#{loginBean.logout}" styleClass="link_page"/>
+                    </h:panelGroup>
+                </div>
+                </section>
+            </nav>
+        </header>
+        <main>
+            <div class="contenedor_principal" style="background-image: url('imagenes/fondo_pagina2.svg'); width: 100%; height: 510px;">
+                <section class="subcontenedor_principal">
+                    <h1 class="texto_principal">
+                        "Alquila lo que necesitas, cuando lo necesites, BIENVENIDO a tu fuente de posibilidades"
+                    </h1>
+                    <h:graphicImage value="/imagenes/imagen_principal.svg" alt="" styleClass="imagen_principal"/>
+                </section>
+            </div>
+            <section class="text_categorias">
+                <h1 class="text_cat_titulo">!NUESTRAS CATEGORIAS!</h1>
+                <p class="text_cat_info">Ya no necesario comprar todo lo que necesitas, ALQUILANDO ahorras espacio y dinero</p>
+            </section>
+            <section class="contenedor_cartas">
+                <div class="carta" style="background-image: url('imagenes/Herramienta.jpg'); width: 270px; height: 450px;">
+                    <section class="info_caja">
+                        <p class="info">HERRAMIENTAS</p>
+                        <p class="info">Alicate,Martillo,Llave</p>
+                        <h:outputLink value="#" styleClass="info_ver">Ir</h:outputLink>
+                    </section>
+                </div>
+                <div class="carta" style="background-image: url('imagenes/multimedia.jpg'); width: 270px; height: 450px;">
+                    <section class="info_caja">
+                        <p class="info">MULTIMEDIA</p>
+                        <p class="info">Celular,Tablet,Televiores</p>
+                        <h:outputLink value="#" styleClass="info_ver">Ir</h:outputLink>
+                    </section>
+                </div>
+                <div class="carta" style="background-image: url('imagenes/transporte.jpg'); width: 270px; height: 450px;">
+                    <section class="info_caja">
+                        <p class="info">TRANSPORTE</p>
+                        <p class="info">Moto,Bicicleta,Scooter</p>
+                        <h:outputLink value="#" styleClass="info_ver">Ir</h:outputLink>
+                    </section>
+                </div>
+                <div class="carta" style="background-image: url('imagenes/hogar.jpg'); width: 270px; height: 450px;">
+                    <section class="info_caja">
+                        <p class="info">HOGAR</p>
+                        <p class="info">Silla,Mesa,Utensilio</p>
+                        <h:outputLink value="#" styleClass="info_ver">Ir</h:outputLink>
+                    </section>
+                </div>
+            </section>
+            <section class="contenedor_verMas">
+                <p class="text_ver">VER MÁS</p>
+                <h:graphicImage value="/imagenes/down_arrow.svg" alt="flecha para abajo" styleClass="img_downArrow"/>
+            </section>
+            <div class="contenedor_empresas">
+                <section class="contenedor_textEmpre">
+                    <h1 class="titulo_empresas">EMPRESAS CON LAS QUE TRABAJAMOS</h1>
+                    <p class="info_empresas">En<span class="highlight"> CapiRent</span> tenemos asociaciones con empresas que también alquilan sus productos para beneficio es ustedes!</p>
+                </section>
+                <div class="slider">
+                    <div class="slide-track">
+                        <div class="slide">
+                            <h:graphicImage value="/imagenes/logitech_logo.png" alt=""/>
+                        </div>
+                        <div class="slide">
+                            <h:graphicImage value="/imagenes/sodimac_logo.png" alt=""/>
+                        </div>
+                        <div class="slide">
+                            <h:graphicImage value="/imagenes/vecor_logo.png" alt=""/>
+                        </div>
+                        <div class="slide">
+                            <h:graphicImage value="/imagenes/promart_logo.png" alt=""/>
+                        </div>
+                        <!-- Repetir los logos según sea necesario -->
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor_publicar">
+                <section class="subcontenedor_publiInfo">
+                    <h1 class="titulo_publi">CAPIRENT</h1>
+                    <p class="info_publi">"Lo que no usas, puede ser el tesoro de otro. Comparte y alquila, ¡crea conexiones, no desechos!"</p>
+                    <h:commandButton value="Publicar Objeto" styleClass="boton_publi"/>
+                </section>
+                <h:graphicImage value="/imagenes/img_publicar.svg" alt="" styleClass="img_publicar"/>
+            </div>
+        </main>
+        <footer class="contenedor_footer">
+            <section class="contenedor_redes">
+                <h1 class="titulo_footer">CAPIRENT</h1>
+                <section class="redes">
+                    <h:graphicImage value="/imagenes/facebook.svg" alt="" styleClass="img_redes"/>
+                    <h:graphicImage value="/imagenes/instagram (1).svg" alt="" styleClass="img_redes2"/>
+                    <h:graphicImage value="/imagenes/tiktok.svg" alt="" styleClass="img_redes3"/>
+                </section>
+                <p class="copy"> &#169;COPYRIGHT</p>
+            </section>
+            <section class="contenedor_contacto">
+                <h1 class="titulo_contacto">CONTACTANOS:</h1>
+                <div class="subcontenedor_contacto">
+                    <div class="contenedor_llamada">
+                        <h:graphicImage value="/imagenes/telefono.svg" alt="" styleClass="imagen_tele"/>
+                        <section class="info_tele">
+                            <p class="info_fo">Llamanos:</p>
+                            <p class="info_fo">999999999</p>
+                        </section>
+                    </div>
+                    <div class="contenedor_llamada">
+                        <h:graphicImage value="/imagenes/computadora.svg" alt="" styleClass="imagen_tele"/>
+                        <section class="info_tele">
+                            <p class="info_fo">Escribenos:</p>
+                            <p class="info_fo">capirent@a</p>
+                        </section>
+                    </div>
+                    <div class="contenedor_llamada">
+                        <h:graphicImage value="/imagenes/casa.svg" alt="" styleClass="imagen_tele"/>
+                        <section class="info_tele">
+                            <p class="info_fo">Visitanos:</p>
+                            <p class="info_fo">UbrLocal</p>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <h:graphicImage value="/imagenes/img_footer2.png" alt="" styleClass="img_footer"/>
+        </footer>
+    </h:form>
+</body>
+
+</html>

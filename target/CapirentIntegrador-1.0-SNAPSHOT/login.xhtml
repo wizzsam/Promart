@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      lang="en">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/flexbox.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="shortcut icon" href="imagenes/logo_capibara.png" type="image/x-icon"/>
+    <title>Iniciar Sesion</title>
+</h:head>
+
+<h:body>
+    <header>
+        <nav class="contenedor_header">
+            <section class="subcontenedor_header">
+                <section class="contenedor_logo">
+                    <h:link outcome="index.xhtml">
+                        <h:graphicImage value="/imagenes/logo_capibara.png" alt="logo_capibara" styleClass="img_logo"/>
+                    </h:link>
+                    <p class="titulo_logo">CAPIRENT</p>
+                </section>
+                <div class="links_header">
+                    <h:link value="NOSOTROS" outcome="#" styleClass="link_page"/>
+                    <h:link value="SUBIR PRODUCTO" outcome="subirProducto.xhtml" styleClass="link_page"/>
+                    <h:link value="PRODUCTOS" outcome="product.xhtml" styleClass="link_page"/>
+                    <h:panelGroup rendered="#{!userSessionBean.loggedIn}">
+                        <h:link value="INICIAR SESION" outcome="login.xhtml" styleClass="link_page"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{userSessionBean.loggedIn}">
+                        <h:outputText value="Hola, #{userSessionBean.username}" styleClass="link_page"/>
+                        <h:commandLink value="Cerrar Sesión" action="#{loginBean.logout}" styleClass="link_page"/>
+                    </h:panelGroup>
+                </div>
+            </section>
+        </nav>
+    </header>
+    <main>
+        <section class="contenedor_textLo">
+            <h1 class="titulo_login">BIENVENIDO A <span class="text_logo">CAPIRENT</span></h1>
+            <p class="info_login">Por favor, ingresa tus credenciales para acceder a tu cuenta.</p>
+        </section>
+        <div class="contenedor_login">
+            <h1 class="text_inicio">INICIAR SESION</h1>
+            <p class="info_inicio">¿Es tú primera vez?
+                <h:outputLink value="register.xhtml">Registrate</h:outputLink>
+            </p>
+            <section class="contenedor_input">
+                <h:form id="loginForm">
+                    <h1 class="text_login1">Usuario</h1>
+                    <h:inputText id="username" value="#{loginBean.username}" required="true" styleClass="input">
+                       
+                    </h:inputText>
+                    
+                    <h1 class="text_login">Contraseña</h1>
+                    <h:inputSecret id="password" value="#{loginBean.password}" required="true" styleClass="input">
+                       
+                    </h:inputSecret>
+                    <h:commandButton value="Iniciar Sesion" action="#{loginBean.login}" styleClass="boton_iniciar"/>
+                </h:form>
+            </section>
+            <h:outputLink value="#" styleClass="olvi_contra">¿Olvidaste la contraseña?</h:outputLink>
+            <div>
+                <p>o ingresar con</p>
+            </div>
+            <div class="contenedor_inicio">
+                <h:graphicImage value="/imagenes/google_logo.png" alt="" styleClass="img_logos"/>
+                <h:graphicImage value="/imagenes/face_logo.svg" alt="" styleClass="img_logos"/>
+            </div>
+        </div>
+    </main>
+    <footer class="contenedor_footer">
+        <section class="contenedor_redes">
+            <h1 class="titulo_footer">CAPIRENT</h1>
+            <section class="redes">
+                <h:graphicImage value="/imagenes/logo_facebook.png" alt="" styleClass="img_redes"/>
+                <h:graphicImage value="/imagenes/logo_instragram.png" alt="" styleClass="img_redes2"/>
+                <h:graphicImage value="/imagenes/logo_tiktok.png" alt="" styleClass="img_redes3"/>
+            </section>
+            <p class="copy"> &#169;COPYRIGHT</p>
+        </section>
+        <section class="contenedor_contacto">
+            <h1 class="titulo_contacto">CONTACTANOS:</h1>
+            <div class="subcontenedor_contacto">
+                <div class="contenedor_llamada">
+                    <h:graphicImage value="/imagenes/telefono.svg" alt="" styleClass="imagen_tele"/>
+                    <section class="info_tele">
+                        <p class="info_fo">Llamanos:</p>
+                        <p class="info_fo">999999999</p>
+                    </section>
+                </div>
+                <div class="contenedor_llamada">
+                    <h:graphicImage value="/imagenes/computadora.svg" alt="" styleClass="imagen_tele"/>
+                    <section class="info_tele">
+                        <p class="info_fo">Escribenos:</p>
+                        <p class="info_fo">capirent@a</p>
+                    </section>
+                </div>
+                <div class="contenedor_llamada">
+                    <h:graphicImage value="/imagenes/casa.svg" alt="" styleClass="imagen_tele"/>
+                    <section class="info_tele">
+                        <p class="info_fo">Visitanos:</p>
+                        <p class="info_fo">UbrLocal</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <h:graphicImage value="/imagenes/img_footer2.png" alt="" styleClass="img_footer"/>
+    </footer>
+</h:body>
+
+</html>

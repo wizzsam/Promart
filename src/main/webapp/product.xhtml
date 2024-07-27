@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/flexbox.css" />
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/stylePruebas.css"/>
+        <title>Producto</title>
+    </head>
+
+    <body>
+        <header>
+            <nav class="contenedor_header">
+                <section class="subcontenedor_header">
+                    <section class="contenedor_logo">
+                        <h:link outcome="index">
+                            <h:graphicImage value="imagenes/logo_capibara.png" alt="logo_capibara" styleClass="img_logo"/>
+                        </h:link>
+                        <p class="titulo_logo">CAPIRENT</p>
+                    </section>
+                    <div class="links_header">
+                        <h:link value="NOSOTROS" outcome="#" styleClass="link_page"/>
+                        <h:link value="SUBIR PRODUCTO" outcome="subirProducto.xhtml" styleClass="link_page"/>
+                        <h:link value="PRODUCTOS" outcome="product.xhtml" styleClass="link_page"/>
+                        <h:panelGroup rendered="#{!userSessionBean.loggedIn}">
+                            <h:link value="INICIAR SESION" outcome="login.xhtml" styleClass="link_page"/>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{userSessionBean.loggedIn}">
+                            <h:outputText value="Hola, #{userSessionBean.username}" styleClass="link_page"/>
+                            <h:commandLink value="Cerrar Sesión" action="#{loginBean.logout}" styleClass="link_page"/>
+                        </h:panelGroup>
+                    </div>
+                </section>
+            </nav>
+        </header>
+        <main>
+            <h1 class="text-titulo"><span class="texto-alquila">ALQUILA</span> CON SEGURIDAD EN CAPIRENT</h1>
+            <div class="contenedor_buscar">
+                <h:form>
+                    <h:outputLabel for="search" value="Buscar:" styleClass="label_buscar" style="color: white;" />
+                    <h:inputText id="search" value="#{searchBean.searchTerm}" styleClass="buscar" />
+                    <h:commandButton value="Buscar" action="#{searchBean.search}" styleClass="btn_buscar" />
+                    <h:link outcome="carrito.xhtml">
+                        <h:graphicImage value="/imagenes/card_shopping.svg" style="width: 30px; margin-left: 150px;" alt="" />
+                    </h:link>
+                </h:form>
+            </div>
+            <div class="contenedor_infoP">
+                <h1 class="titulo_Pro">PRODUCTOS</h1>
+                <p class="Descrip_Pro"><span>Variedad</span> de productos al alcance de tú mano y bolsillo</p>
+            </div>
+            <section class="contenedor_globalP">
+                <section class="contenedor_productos">
+                    <div class="contenedor_filtro">
+                        <h:form>
+                            <h1 class="label_filtro">Filtro</h1>
+                            <div>
+                                <h1 class="titu_fil" style="color:white; margin-left: 5px;">Marca</h1>
+                                <div class="checkbox_group">
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedBrands['Werken']}" />
+                                        Werken
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedBrands['Bosch']}" />
+                                        Bosch
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedBrands['Stanley']}" />
+                                        Stanley
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedBrands['Truper']}" />
+                                        Truper
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedBrands['Pretul']}" />
+                                        Pretul
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedBrands['Kamasa']}" />
+                                        Kamasa
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h1 class="titu_fil" style="color:white; margin-left: 5px;">Precio</h1>
+                                <div class="checkbox_group">
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedPrices['Bajo']}" />
+                                        Bajo (10-50)
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedPrices['Intermedio']}" />
+                                        Intermedio (51-100)
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedPrices['Alto']}" />
+                                        Alto (101+)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h1 class="titu_fil" style="color:white; margin-left: 5px;">Tipo Alquiler</h1>
+                                <div class="checkbox_group">
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedRentalTypes['Horas']}" />
+                                        Horas
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedRentalTypes['Diario']}" />
+                                        Diario
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedRentalTypes['Semanal']}" />
+                                        Semanal
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedRentalTypes['Mensual']}" />
+                                        Mensual
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h1 class="titu_fil" style="color:white; margin-left: 5px;">Estado</h1>
+                                <div class="checkbox_group">
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedStates['Nuevo']}" />
+                                        Nuevo
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedStates['Semi-Nuevo']}" />
+                                        Semi-Nuevo
+                                    </label>
+                                    <label>
+                                        <h:selectBooleanCheckbox value="#{searchBean.selectedStates['Viejo']}" />
+                                        Viejo
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h:commandButton value="Aplicar Filtros" action="#{searchBean.search}" styleClass="btn_buscar" />
+                        </h:form>
+                    </div>
+                </section>       
+                <div class="card-container">
+                    <h:form class="form_card">
+                        <c:forEach var="product" items="#{searchBean.filteredProducts}">
+                            <div class="card">
+                                <div class="card-image">
+                                    <h:graphicImage value="#{product.imageUrl}" alt="#{product.marca}" />
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        <h2>#{product.nombre} - #{product.marca}</h2>
+                                        <span class="estado">#{product.estado}</span>
+                                    </div>
+                                    <div class="card-price">
+                                        <span class="price">S/#{product.precio} - #{product.tipoAlquiler}</span>
+                                    </div>
+                                    <div class="card-description">
+                                        <p>#{product.palabraClave}</p>
+                                    </div>
+                                    <div class="card-rating">
+                                        <span class="stars">
+                                            <c:forEach var="star" begin="1" end="5">
+                                                <h:outputText value="⭐" />
+                                            </c:forEach>
+                                        </span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="user">
+                                            <h:graphicImage value="/imagenes/user.svg" alt="User Icon" />
+                                            <span>#{product.uploadedBy}</span>
+                                        </div>
+                                        <div class="card-action">
+                                            <h:link value="ir" outcome="descrip.xhtml">
+                                                <f:param name="productId" value="#{product.id}" />
+                                            </h:link>
+                                            <h:commandButton class="boton_añadirCard" value="Añadir" action="#{productBean.addToCart(product)}" styleClass="btn-add-to-cart" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </h:form>
+                </div>
+            </section>
+            <footer class="contenedor_footer">
+                <section class="contenedor_redes">
+                    <h1 class="titulo_footer">CAPIRENT</h1>
+                    <section class="redes">
+                        <h:graphicImage value="/imagenes/logo_facebook.png" styleClass="img_redes" alt=""/>
+                        <h:graphicImage value="/imagenes/logo_instragram.png" styleClass="img_redes2" alt=""/>
+                        <h:graphicImage value="/imagenes/logo_tiktok.png" styleClass="img_redes3" alt=""/>
+                    </section>
+                    <p class="copy"> &#169; COPYRIGHT</p>
+                </section>
+                <section class="contenedor_contacto">
+                    <h1 class="titulo_contacto">CONTACTANOS:</h1>
+                    <div class="subcontenedor_contacto">
+                        <div class="contenedor_llamada">
+                            <h:graphicImage value="/imagenes/telefono.svg" styleClass="imagen_tele" alt=""/>
+                            <section class="info_tele">
+                                <p class="info_fo">Llamanos:</p>
+                                <p class="info_fo">999999999</p>
+                            </section>
+                        </div>
+                        <div class="contenedor_llamada">
+                            <h:graphicImage value="/imagenes/computadora.svg" styleClass="imagen_tele" alt=""/>
+                            <section class="info_tele">
+                                <p class="info_fo">Escribenos:</p>
+                                <p class="info_fo">capirent@a</p>
+                            </section>
+                        </div>
+                        <div class="contenedor_llamada">
+                            <h:graphicImage value="/imagenes/casa.svg" styleClass="imagen_tele" alt=""/>
+                            <section class="info_tele">
+                                <p class="info_fo">Visitanos:</p>
+                                <p class="info_fo">UbrLocal</p>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+                <h:graphicImage value="/imagenes/img_footer2.png" styleClass="img_footer" alt=""/>
+            </footer>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+.subcontenedor_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.contenedor_logo {
+    display: flex;
+    align-items: center;
+}
+
+.subcontenedor_principal {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contenedor_cartas {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.contenedor_globalP {
+    display: flex;
+}
+
+
+/* ESTILO SLIDER */
+
+.slider {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider .slide-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 40s linear infinite;
+    width: calc(200px * 14);
+    gap: 20px;
+    padding: 10px;
+}
+
+.slider .slide {
+    width: 200px;
+}
+
+.slider .slide img {
+    width: 100%;
+}
+
+.contenedor_publicar {
+    display: flex;
+    margin-top: 25px;
+    align-items: center;
+    gap: 100px;
+}
+
+.redes {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.subcontenedor_contacto {
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.contenedor_llamada {
+    display: flex;
+    text-wrap: wrap;
+    gap: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-200px * 7));
+    }
+}
